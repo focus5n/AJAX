@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onreadystatechange</title>
+
+    <script>
+        switch (httpRequest.readyState) {
+
+            case XMLHttpRequest.UNSET:
+                currentState += "현재 XMLHttpRequest 객체의 상태는 UNSET 입니다.<br>";
+                break;
+
+            case XMLHttpRequest.OPENED:
+                currentState += "현재 XMLHttpRequest 객체의 상태는 OPENED 입니다.<br>";
+                break;
+
+            case XMLHttpRequest.HEADERS_RECIEVED:
+                currentState += "현재 XMLHttpRequest 객체의 상태는 HEADERS_RECEIVED 입니다.<br>";
+                break;
+
+            case XMLHttpRequest.LOADING:
+                currentState += "현재 XMLHttpRequest 객체의 상태는 LOADING 입니다.<br>";
+                break;
+
+            case XMLHttpRequest.DONE:
+                currentState += "현재 XMLHttpRequest 객체의 상태는 DONE 입니다.<br>";
+                break;
+
+        }
+        document.getElementById("status").innerHTML = currentState;
+
+        if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200 ) {
+            
+            document.getElementById("text").innerHTML = httpRequest.responseText;
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="text">Here Comes responseText.</div>
+</body>
+
+</html>
